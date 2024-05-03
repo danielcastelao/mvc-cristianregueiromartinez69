@@ -27,5 +27,15 @@ public class Model {
 
     }
 
+    public static int getVelocidad(String auxMatricula){
+        int velocidadActual = 0;
+        for (Coche coche:parking){
+            if(coche.getMatricula().equalsIgnoreCase(auxMatricula)){
+                velocidadActual = coche.getVelocidad();
+            }
+        }
+        return velocidadActual;
+    }
+
    
 }
