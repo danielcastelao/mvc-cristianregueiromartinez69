@@ -5,17 +5,27 @@ import java.util.ArrayList;
 
 public class Model {
 
-    private ArrayList <Coche> misCoches = new ArrayList<>();
+    private static ArrayList <Coche> parking = new ArrayList<>();
 
-    public ArrayList <Coche> crearCoche(String auxMatricula, String auxModelo, int auxVelocidad){
+    public static ArrayList <Coche> crearCoche(String auxMatricula, String auxModelo, int auxVelocidad){
 
-        misCoches.add(new Coche(auxMatricula, auxModelo, auxVelocidad));
-        return misCoches;
+        parking.add(new Coche(auxMatricula, auxModelo, auxVelocidad));
+        return parking;
     }
 
-
-
-    public ArrayList<Coche> getMisCoches() {
-        return misCoches;
+    public static ArrayList<Coche> getMisCoches() {
+        return parking;
     }
+
+    public static void cambiarVelocidad(String auxMatricula, int velocidad){
+
+        for (Coche coche:parking){
+            if(coche.getMatricula().equalsIgnoreCase(auxMatricula)){
+                coche.setVelocidad(velocidad);
+            }
+        }
+
+    }
+
+   
 }
