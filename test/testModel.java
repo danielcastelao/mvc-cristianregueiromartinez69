@@ -15,7 +15,7 @@ public class testModel {
         ArrayList<Coche> parking = Model.crearCoche("1234ABC", "Toyota", 120);
         Assertions.assertEquals(1, parking.size());
 
-        // Comprobamos que los atributos del coche creado son correctos
+
         Coche coche = parking.get(0);
         Assertions.assertEquals("1234ABC", coche.getMatricula());
         Assertions.assertEquals("Toyota", coche.getModelo());
