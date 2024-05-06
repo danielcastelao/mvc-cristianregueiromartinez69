@@ -1,17 +1,35 @@
 package cod.mvc;
 
+/**
+ * Clase coche
+ * @author cristian
+ * @version v1.0
+ */
 public class Coche {
 
-private String matricula;
-private String modelo;
-private int velocidad;
+    /**
+     * atributos privados de la clase coche
+     */
+    private String matricula;
+    private String modelo;
+    private int velocidad;
 
-public Coche(String matricula, String modelo, int velocidad){
+    /**
+     * Contructor de la clase coche
+     * @param matricula la mtricula del coche
+     * @param modelo el modelo del coche
+     * @param velocidad la velocidad del coche
+     */
+    public Coche(String matricula, String modelo, int velocidad){
     this.matricula = matricula;
     this.modelo = modelo;
     this.velocidad = velocidad;
 }
 
+    /**
+     * getter y setter de la clase coche
+     * @return los valores correspondientes
+     */
     public String getMatricula() {
         return matricula;
     }
