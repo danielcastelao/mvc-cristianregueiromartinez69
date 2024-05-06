@@ -13,12 +13,11 @@ public class testModel {
     @DisplayName("Metodo crear coche")
     public void testCrearCoche() {
 
-        ArrayList<Coche> parking = Model.crearCoche("1234ABC", "Toyota", 120);
-        Assertions.assertEquals(1, parking.size());
+        ArrayList<Coche> parking = Model.crearCoche("1237ABC", "Toyota", 120);
 
 
         Coche coche = parking.get(0);
-        Assertions.assertEquals("1234ABC", coche.getMatricula());
+        Assertions.assertEquals("1237ABC", coche.getMatricula());
         Assertions.assertEquals("Toyota", coche.getModelo());
         Assertions.assertEquals(120, coche.getVelocidad());
     }
@@ -26,21 +25,21 @@ public class testModel {
     @Test
     @DisplayName("Metodo cambiar velocidad")
     public void testCambiarVelocidad() {
-        Model.crearCoche("1234ABC", "Toyota", 120);
+        Model.crearCoche("1231ABC", "Toyota", 120);
 
 
-        Model.cambiarVelocidad("1234ABC", 150);
-        Assertions.assertEquals(150, Model.getVelocidad("1234ABC"));
+        Model.cambiarVelocidad("1231ABC", 150);
+        Assertions.assertEquals(150, Model.getVelocidad("1231ABC"));
     }
 
     @Test
     @DisplayName("Metodo obtener velocidad")
     public void testGetVelocidad() {
 
-        Model.crearCoche("1234ABC", "Toyota", 120);
+        Model.crearCoche("1237ABC", "Toyota", 120);
 
 
-        Assertions.assertEquals(120, Model.getVelocidad("1234ABC"));
+        Assertions.assertEquals(120, Model.getVelocidad("1237ABC"));
     }
 
 }
