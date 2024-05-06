@@ -10,6 +10,7 @@ public class testModel {
 
 
     @Test
+    @DisplayName("Metodo crear coche")
     public void testCrearCoche() {
 
         ArrayList<Coche> parking = Model.crearCoche("1234ABC", "Toyota", 120);
@@ -23,21 +24,22 @@ public class testModel {
     }
 
     @Test
+    @DisplayName("Metodo cambiar velocidad")
     public void testCambiarVelocidad() {
-        // Añadimos un coche al parking
         Model.crearCoche("1234ABC", "Toyota", 120);
 
-        // Comprobamos que el método cambiarVelocidad actualiza la velocidad del coche correcto
+
         Model.cambiarVelocidad("1234ABC", 150);
         Assertions.assertEquals(150, Model.getVelocidad("1234ABC"));
     }
 
     @Test
+    @DisplayName("Metodo obtener velocidad")
     public void testGetVelocidad() {
-        // Añadimos un coche al parking
+
         Model.crearCoche("1234ABC", "Toyota", 120);
 
-        // Comprobamos que el método getVelocidad devuelve la velocidad del coche correcto
+
         Assertions.assertEquals(120, Model.getVelocidad("1234ABC"));
     }
 
