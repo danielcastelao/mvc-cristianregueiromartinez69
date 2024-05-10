@@ -7,9 +7,8 @@ public class Main {
     public static void main(String[] args) {
 
         /**
-         * hacemos un objeto de la clase vista y llamamos al método muestra velocidad
+         * hacemos un objeto de la clase controler y llamamos al método
          */
-         View vista = new View();
-         vista.muestraVelocidad("1234A", 120);
+        Controler.logicaPrograma();
     }
 }
