@@ -66,9 +66,7 @@ public class Model {
         return velocidadActual;
     }
 
-    public static ArrayList<Coche> getParking() {
-        return parking;
-    }
+
 
     public static void setParking(ArrayList<Coche> parking) {
         Model.parking = parking;

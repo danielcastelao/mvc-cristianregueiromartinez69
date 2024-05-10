@@ -9,11 +9,14 @@ public class View {
 
     /**
      * metodo que recibe por parametro la matricula y la velocidad del vehículo
+     *
      * @param matricula la matricula del coche
      * @param velocidad la velocidad del coche
+     * @return
      */
-    public void muestraVelocidad(String matricula, int velocidad){
+    public static boolean muestraVelocidad(String matricula, int velocidad){
 
-        System.out.println(matricula + ", Velocidad: " + velocidad + "km/h");
+
+        return true;
     }
 }
