@@ -8,11 +8,22 @@ package cod.mvc;
 public interface Observable {
 
 
-
+    /**
+     * metodo para añadir un observador
+     * @param observer el objeto de tipo Observer
+     */
         void addObserver(Observer observer);
 
-        void removeObserver(Observer observer);
+    /**
+     * metodo para eliminar un observador
+     * @param observer el objeto de tipo observer
+     */
+    void removeObserver(Observer observer);
 
+    /**
+     * metodo para notificar a nuestros observadores
+     * @param coche el Objeto de tipo Coche
+     */
         void notifyObservers(Coche coche);
     }
 
