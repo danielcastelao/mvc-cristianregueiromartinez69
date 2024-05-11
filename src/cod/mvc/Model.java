@@ -2,18 +2,20 @@ package cod.mvc;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * clase model con los metodos
  * @author cristian
  * @version v1.0
  */
-public class Model {
+public class Model implements Observable{
 
     /**
      * atributo privado ArrayList de tipo Cohe
      */
     private static ArrayList <Coche> parking = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
 
     /**
      * Metodo para crear un coche
@@ -70,5 +72,22 @@ public class Model {
 
     public static void setParking(ArrayList<Coche> parking) {
         Model.parking = parking;
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(Coche coche) {
+        for (Observer observer : observers) {
+            observer.update(coche);
+        }
     }
 }
