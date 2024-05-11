@@ -15,6 +15,9 @@ public class Model implements Observable{
      * atributo privado ArrayList de tipo Cohe
      */
     private static ArrayList <Coche> parking = new ArrayList<>();
+    /**
+     * Lista para nuestros observadores
+     */
     private final List<Observer> observers = new ArrayList<>();
 
     /**
@@ -43,13 +46,18 @@ public class Model implements Observable{
      * @param auxMatricula la matricula que ha de encontrar para encontrar la velocidad
      * @param velocidad la nueva velocidad del coche
      */
-    public static void cambiarVelocidad(String auxMatricula, int velocidad){
+    public  void cambiarVelocidad(String auxMatricula, int velocidad){
 
         for (Coche coche:parking){
             if(coche.getMatricula().equalsIgnoreCase(auxMatricula)){
                 coche.setVelocidad(velocidad);
+                /**
+                 * notificamos a los observadores que se cambió la velocidad
+                 */
+                notifyObservers(coche);
             }
         }
+
 
     }
 
@@ -74,16 +82,28 @@ public class Model implements Observable{
         Model.parking = parking;
     }
 
+    /**
+     * metodo implementado para añadir observadores
+     * @param observer el objeto de tipo Observer
+     */
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
+    /**
+     * metodo implementado para borrar observadores
+     * @param observer el objeto de tipo observer
+     */
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
+    /**
+     * metodo implementado para notificar de un cambio a los observadores
+     * @param coche el Objeto de tipo Coche
+     */
     @Override
     public void notifyObservers(Coche coche) {
         for (Observer observer : observers) {
