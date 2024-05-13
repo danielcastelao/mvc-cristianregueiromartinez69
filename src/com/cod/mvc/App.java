@@ -1,10 +1,10 @@
 package com.cod.mvc;
 
-import com.cod.mvc.controller.Controler;
+import com.cod.mvc.controller.Controller;
 
 public class App {
 
     public static void main(String[] args) {
-        Controler.logicaPrograma();
+        Controller.logicaPrograma();
     }
 }

@@ -7,7 +7,7 @@ import com.cod.mvc.model.Model;
  * @author cristian
  * @version v1.0
  */
-public class Controler {
+public class Controller {
     /**
      * atributo estático de tipo Model para llamar a los métodos
      */
@@ -30,7 +30,7 @@ public class Controler {
        /**
         * le cambiamos la velocidad
         */
-       modelo.cambiarVelocidad("1235-UH", 100);
+       modelo.cambiarVelocidad("9876-AB", 40);
 
 
 

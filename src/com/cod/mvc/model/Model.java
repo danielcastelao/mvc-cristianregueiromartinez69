@@ -19,7 +19,7 @@ public class Model implements Observable {
     /**
      * Lista para nuestros observadores
      */
-    private final List<Observer> observers = new ArrayList<>();
+    private static final List<Observer> observers = new ArrayList<>();
 
     /**
      * Metodo para crear un coche
