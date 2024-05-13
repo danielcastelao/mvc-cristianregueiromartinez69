@@ -1,6 +1,6 @@
-package cod.mvc.model;
+package com.cod.mvc.model;
 
-import cod.mvc.controller.Observer;
+import com.cod.mvc.controller.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

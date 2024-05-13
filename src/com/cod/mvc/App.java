@@ -1,6 +1,6 @@
-package cod.mvc;
+package com.cod.mvc;
 
-import cod.mvc.controller.Controler;
+import com.cod.mvc.controller.Controler;
 
 public class App {
 

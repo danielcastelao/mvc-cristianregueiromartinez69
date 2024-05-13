@@ -1,6 +1,6 @@
-package cod.mvc.controller;
+package com.cod.mvc.controller;
 
-import cod.mvc.model.Coche;
+import com.cod.mvc.model.Coche;
 
 /**
  * Interface observer de la aplicacion

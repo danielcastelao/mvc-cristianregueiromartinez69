@@ -1,6 +1,6 @@
-package cod.mvc.controller;
+package com.cod.mvc.controller;
 
-import cod.mvc.model.Model;
+import com.cod.mvc.model.Model;
 
 /**
  * clase controller donde tenemos la lógica del programa
@@ -11,7 +11,7 @@ public class Controler {
     /**
      * atributo estático de tipo Model para llamar a los métodos
      */
-   static Model modelo;
+   static Model modelo = new Model();
    public static void logicaPrograma(){
 
        /**

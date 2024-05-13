@@ -1,8 +1,7 @@
-package cod.mvc.controller;
+package com.cod.mvc.controller;
 
-import cod.mvc.model.Coche;
-import cod.mvc.controller.Observer;
-import cod.mvc.view.View;
+import com.cod.mvc.model.Coche;
+import com.cod.mvc.view.View;
 
 /**
  * clase que implementa la interfaz observer para informar de que la velocidad ha sido cambiada
