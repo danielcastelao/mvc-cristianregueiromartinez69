@@ -1,4 +1,4 @@
-package cod.mvc;
+package cod.mvc.view;
 
 /**
  * Clase view con el metodo de mostrar velocidad

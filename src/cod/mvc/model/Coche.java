@@ -1,4 +1,4 @@
-package cod.mvc;
+package cod.mvc.model;
 
 /**
  * Clase coche

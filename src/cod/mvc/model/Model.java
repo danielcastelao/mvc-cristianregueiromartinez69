@@ -1,6 +1,7 @@
-package cod.mvc;
+package cod.mvc.model;
 
-import java.lang.reflect.Array;
+import cod.mvc.controller.Observer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @author cristian
  * @version v1.0
  */
-public class Model implements Observable{
+public class Model implements Observable {
 
     /**
      * atributo privado ArrayList de tipo Cohe

@@ -1,4 +1,6 @@
-package cod.mvc;
+package cod.mvc.controller;
+
+import cod.mvc.model.Model;
 
 /**
  * clase controller donde tenemos la lógica del programa

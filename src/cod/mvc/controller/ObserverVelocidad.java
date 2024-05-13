@@ -1,11 +1,15 @@
-package cod.mvc;
+package cod.mvc.controller;
+
+import cod.mvc.model.Coche;
+import cod.mvc.controller.Observer;
+import cod.mvc.view.View;
 
 /**
  * clase que implementa la interfaz observer para informar de que la velocidad ha sido cambiada
  * @author cristian
  * @version v1.0
  */
-public class ObserverVelocidad implements Observer{
+public class ObserverVelocidad implements Observer {
     /**
      * Este método es llamado cuando hay un cambio
      * laza todos los update de los Observers
