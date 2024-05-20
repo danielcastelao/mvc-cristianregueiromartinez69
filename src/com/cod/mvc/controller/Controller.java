@@ -30,7 +30,7 @@ public class Controller {
     * @param velocidad la velocidad del coche
     */
    public void crearCoche(String nombre, String matricula, int velocidad){
-       miModel.crearCoche(nombre, matricula, velocidad);
+       Model.crearCoche(nombre, matricula, velocidad);
    }
 
    /**

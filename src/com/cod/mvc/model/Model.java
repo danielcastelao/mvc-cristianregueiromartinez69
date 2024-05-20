@@ -28,10 +28,10 @@ public class Model implements Observable {
      * @param auxVelocidad la velocidad del coche
      * @return
      */
-    public static ArrayList <Coche> crearCoche(String auxMatricula, String auxModelo, int auxVelocidad){
-
-        parking.add(new Coche(auxMatricula, auxModelo, auxVelocidad));
-        return parking;
+    public static Coche crearCoche(String auxMatricula, String auxModelo, int auxVelocidad){
+        Coche aux = new Coche(auxMatricula, auxModelo, auxVelocidad);
+        parking.add(aux);
+        return aux;
     }
 
     /**
