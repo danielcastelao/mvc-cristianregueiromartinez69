@@ -8,33 +8,40 @@ import com.cod.mvc.model.Model;
  * @version v1.0
  */
 public class Controller {
-    /**
-     * atributo estático de tipo Model para llamar a los métodos
-     */
-   static Model modelo = new Model();
-   public static void logicaPrograma(){
-
+   private final Model miModel;
+   public Controller(Model miModel) {
+      this.miModel = miModel;
        /**
         * instanciamos el observador
         */
        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
-       modelo.addObserver(observoVelocidad);
+       miModel.addObserver(observoVelocidad);
 
-       /**
-        * creamos coches
-        */
-       Model.crearCoche("1234-UH", "Seat", 140);
-       Model.crearCoche("1235-UH", "Citroen", 90);
-       Model.crearCoche("9876-AB", "Audi", 230);
-
-       /**
-        * le cambiamos la velocidad
-        */
-       modelo.cambiarVelocidad("9876-AB", 40);
-
+       ObserverLimite observoElLimite = new ObserverLimite();
+       miModel.addObserver(observoElLimite);
 
 
    }
+
+   /**
+    * metodo que crea un coche
+    * @param nombre el nombre del coche
+    * @param matricula la matricula del coche
+    * @param velocidad la velocidad del coche
+    */
+   public void crearCoche(String nombre, String matricula, int velocidad){
+       miModel.crearCoche(nombre, matricula, velocidad);
+   }
+
+   /**
+    * metodo que cambia la velocidad del coche
+    * @param matricula la matricula del coche
+    * @param velocidad la velocidad del coche
+    */
+   public void cambiarVelocidad(String matricula, int velocidad){
+       miModel.cambiarVelocidad(matricula, velocidad);
+   }
+
 
 
 }
