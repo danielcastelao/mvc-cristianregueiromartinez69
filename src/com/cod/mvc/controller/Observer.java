@@ -5,7 +5,7 @@ import com.cod.mvc.model.Coche;
 /**
  * Interface observer de la aplicacion
  * @author cristian
- * @version v1.0
+ * @version v2.0
  */
 public interface Observer {
 

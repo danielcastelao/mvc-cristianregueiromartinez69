@@ -4,7 +4,7 @@ import com.cod.mvc.model.Model;
 
 /**
  * Clase controlador de la aplicacion
- * @version v1.0
+ * @version v2.0
  * @autor cristian
  */
 public class Controller {
