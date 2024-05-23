@@ -11,26 +11,22 @@ import com.cod.mvc.model.Model;
 public class App {
     public static void main(String[] args) {
         /**
-         * Creamos un objeto de tipo Model
+         * Creamos un modelo y un controlador
          */
-        Model miModel = new Model();
+        Model model = new Model();
+        Controller controller = new Controller(model);
 
         /**
-         * Creamos un objeto de tipo Controller
+         * Creamos coches y cambiamos la velocidad
          */
-        Controller miController = new Controller(miModel);
-
-        /**
-         * Creamos un coche
-         */
-        miController.crearCoche("LaFerrari", "SBC 1234");
-        miController.crearCoche("Alpine", "HYU 4567");
+        controller.crearCoche("1234-UH", "Seat");
+        controller.crearCoche("1235-UH", "Citroen");
+        controller.crearCoche("9876-AB", "Audi");
 
         /**
          * Cambiamos la velocidad de los coches
          */
-        miController.cambiarVelocidad("SBC 1234", 30);
-        miController.cambiarVelocidad("HYU 4567", 150);
-
+        controller.cambiarVelocidad("1235-UH", 100);
+        controller.cambiarVelocidad("9876-AB", 130);
     }
 }

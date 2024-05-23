@@ -1,4 +1,3 @@
-
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Model;
@@ -7,33 +6,24 @@ import com.cod.mvc.model.Model;
  * Clase controlador de la aplicacion
  * @version v1.0
  * @autor cristian
- * @version v1.0
  */
 public class Controller {
 
-    /**
-     * Objeto de tipo Model
-     */
-    private final Model miModel = new Model();
+    private final Model miModel;
 
     /**
      * Constructor de la clase
      * @param miModel objeto de tipo Model
      */
     public Controller(Model miModel) {
+        this.miModel = miModel;
 
-        /**
-         * Añadimos los observadores al modelo
-         */
-        ObserverVelocidad ObVelocida = new ObserverVelocidad();
-        miModel.addObserver(ObVelocida);
+        // Añadimos los observadores al modelo
+        ObserverVelocidad obVelocidad = new ObserverVelocidad();
+        miModel.addObserver(obVelocidad);
 
-        /**
-         * Añadimos los observadores al modelo
-         */
-        ObserverLimite ObLimite = new ObserverLimite();
-        miModel.addObserver(ObLimite);
-
+        ObserverLimite obLimite = new ObserverLimite();
+        miModel.addObserver(obLimite);
     }
 
     /**
@@ -41,8 +31,8 @@ public class Controller {
      * @param modelo del coche
      * @param matricula por la que buscar el coche
      */
-    public void crearCoche(String modelo, String matricula){
-        miModel.crearCoche(modelo, matricula);
+    public void crearCoche(String matricula, String modelo) {
+        miModel.crearCoche(matricula, modelo);
     }
 
     /**
@@ -50,7 +40,7 @@ public class Controller {
      * @param matricula por la que buscar el coche
      * @param velocidad nueva
      */
-    public void cambiarVelocidad(String matricula, Integer velocidad){
+    public void cambiarVelocidad(String matricula, int velocidad) {
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 }

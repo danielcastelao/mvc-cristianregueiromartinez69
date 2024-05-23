@@ -5,7 +5,7 @@ import com.cod.mvc.controller.Observer;
 /**
  * Interface observable de nuestra aplicación
  * @author cristian
- * @version v1.0
+ * @version v2.0
  */
 public interface Observable {
 
