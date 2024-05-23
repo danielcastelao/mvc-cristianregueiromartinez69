@@ -4,26 +4,17 @@ import com.cod.mvc.model.Coche;
 import com.cod.mvc.view.View;
 
 /**
- * clase que implementa la interfaz observer para informar de que la velocidad ha sido cambiada
- * @author cristian
- * @version v1.0
+ * Clase que implementa la interfaz Observer y se encarga de notificar a la clase view cuando se realiza un cambio de velocidad de un coche
+ * @version v2.0
+ * @autor cristian
  */
-public class ObserverVelocidad implements Observer {
+public class ObserverVelocidad implements Observer{
     /**
-     * Este método es llamado cuando hay un cambio
-     * laza todos los update de los Observers
-     *
-     * @param arg el argumento pasado por el observable, el coche actualizado
+     * Notifica a la clase view cuando se realiza un cambio de velocidad de un coche
+     * @param coche el objeto tipo coche que se a actualizado
      */
     @Override
-    public void update(Coche arg) {
-        System.out.println("La velocidad ha sido alterada: " + arg.getVelocidad());
-        /**
-         * le decimos a la vista que muestre la velocidad
-         */
-        View.muestraVelocidad(arg.getMatricula(), arg.getVelocidad());
-
-
-
+    public void update(Coche coche) {
+        View.muestraVelocidad(coche.matricula,coche.velocidad);
     }
 }

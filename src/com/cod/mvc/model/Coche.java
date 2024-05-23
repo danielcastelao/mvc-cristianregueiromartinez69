@@ -1,56 +1,35 @@
+
 package com.cod.mvc.model;
 
 /**
- * Clase coche
+ * Clase Coche que representa un coche de nuestra aplicación
  * @author cristian
- * @version v1.0
+ * @version v2.0
  */
 public class Coche {
 
     /**
-     * atributos privados de la clase coche
+     * Matricula del coche
      */
-    private String matricula;
-    private String modelo;
-    private int velocidad;
+    public String matricula;
+    /**
+     * Modelo del coche
+     */
+    public String modelo;
+    /**
+     * Velocidad del coche
+     */
+    public Integer velocidad;
 
     /**
-     * Contructor de la clase coche
-     * @param matricula la mtricula del coche
-     * @param modelo el modelo del coche
-     * @param velocidad la velocidad del coche
+     * Constructor de la clase
+     * @param matricula del coche
+     * @param modelo del coche
      */
-    public Coche(String matricula, String modelo, int velocidad){
-    this.matricula = matricula;
-    this.modelo = modelo;
-    this.velocidad = velocidad;
-}
-
-    /**
-     * getter y setter de la clase coche
-     * @return los valores correspondientes
-     */
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
+    public Coche(String matricula, String modelo) {
         this.matricula = matricula;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
         this.modelo = modelo;
+        this.velocidad = 0;
     }
 
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
 }
