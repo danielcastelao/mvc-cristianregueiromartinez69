@@ -19,14 +19,15 @@ public class App {
         /**
          * Creamos coches y cambiamos la velocidad
          */
-        controller.crearCoche("1234-UH", "Seat");
-        controller.crearCoche("1235-UH", "Citroen");
-        controller.crearCoche("9876-AB", "Audi");
+        controller.crearCoche("6969-AC", "Peogeot");
+        controller.crearCoche("7777-BC", "Volkswagen");
+        controller.crearCoche("5189-UJ", "Audi");
 
         /**
          * Cambiamos la velocidad de los coches
          */
-        controller.cambiarVelocidad("1235-UH", 100);
-        controller.cambiarVelocidad("9876-AB", 130);
+        controller.cambiarVelocidad("6969-AC", 100);
+        controller.cambiarVelocidad("7777-BC", 130);
+        controller.cambiarVelocidad("5189-UJ", 150);
     }
 }
