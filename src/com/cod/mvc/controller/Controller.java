@@ -22,7 +22,7 @@ public class Controller {
         ObserverVelocidad obVelocidad = new ObserverVelocidad();
         miModel.addObserver(obVelocidad);
 
-        ObserverLimite obLimite = new ObserverLimite();
+        ObserverLimite obLimite = new ObserverLimite(miModel);
         miModel.addObserver(obLimite);
     }
 
