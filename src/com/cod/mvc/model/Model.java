@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 /**
  * Clase que implementa la interfaz Observable y se encarga de gestionar los coches y notificar a los observers de un cambio
- * @version v2.0
- * @autor cristian
+ * @author cristian
+ * version v2.0
  */
 public class Model implements Observable {
 

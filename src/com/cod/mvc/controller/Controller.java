@@ -4,8 +4,8 @@ import com.cod.mvc.model.Model;
 
 /**
  * Clase controlador de la aplicacion
+ * @author cristian
  * @version v2.0
- * @autor cristian
  */
 public class Controller {
 
@@ -16,12 +16,20 @@ public class Controller {
      * @param miModel objeto de tipo Model
      */
     public Controller(Model miModel) {
+        /**
+         * Asignamos el modelo
+         */
         this.miModel = miModel;
 
-        // Añadimos los observadores al modelo
+        /**
+         * Creamos el observador de velocidad
+         */
         ObserverVelocidad obVelocidad = new ObserverVelocidad();
         miModel.addObserver(obVelocidad);
 
+        /**
+         * Creamos el observador limite
+         */
         ObserverLimite obLimite = new ObserverLimite(miModel);
         miModel.addObserver(obLimite);
     }

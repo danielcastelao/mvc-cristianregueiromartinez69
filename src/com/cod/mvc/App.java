@@ -5,7 +5,7 @@ import com.cod.mvc.model.Model;
 
 /**
  * clase app donde ejecutamos el programa
- * @autor cristian
+ * @author cristian
  * @version v2.0
  */
 public class App {

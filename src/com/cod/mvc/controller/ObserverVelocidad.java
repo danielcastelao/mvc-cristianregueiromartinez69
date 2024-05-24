@@ -5,8 +5,8 @@ import com.cod.mvc.view.View;
 
 /**
  * Clase que implementa la interfaz Observer y se encarga de notificar a la clase view cuando se realiza un cambio de velocidad de un coche
- * @version v2.0
- * @autor cristian
+ * @author cristian
+ * version v2.0
  */
 public class ObserverVelocidad implements Observer {
     /**

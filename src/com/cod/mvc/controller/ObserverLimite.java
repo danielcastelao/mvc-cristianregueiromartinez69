@@ -5,8 +5,8 @@ import com.cod.mvc.model.Model;
 
 /**
  * Clase que implementa la interfaz Observer y comprueba si el coche supera el limite de velocidad
- * @version v2.0
- * @autor cristian
+ * @author cristian
+ * version v2.0
  */
 public class ObserverLimite implements Observer {
 
@@ -15,8 +15,14 @@ public class ObserverLimite implements Observer {
      */
     public static final int VELOCIDAD_LIMITE = 120;
 
+    /**
+     * Velocidad a reducir
+     */
     public static final int VELOCIDAD_REDUCIR = 10;
 
+    /**
+     * Modelo de la aplicacion
+     */
     private Model model;
 
     public ObserverLimite(Model model) {
@@ -29,6 +35,9 @@ public class ObserverLimite implements Observer {
      */
     @Override
     public void update(Coche coche) {
+        /**
+         * Si la velocidad del coche supera el limite de velocidad, se reduce la velocidad
+         */
         if (coche.velocidad > VELOCIDAD_LIMITE) {
             System.out.println("Limite de velocidad sobrepasado, vamos a reducirla");
             model.reducirVelocidad(coche.matricula, VELOCIDAD_REDUCIR);

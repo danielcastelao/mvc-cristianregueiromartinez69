@@ -32,6 +32,10 @@ public class Coche {
         this.velocidad = 0;
     }
 
+    /**
+     * getter y setter de la clase coche
+     * @return los atributos de la clase
+     */
     public String getMatricula() {
         return matricula;
     }
