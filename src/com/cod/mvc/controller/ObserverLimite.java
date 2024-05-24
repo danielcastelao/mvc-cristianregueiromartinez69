@@ -21,7 +21,8 @@ public class ObserverLimite implements Observer {
     @Override
     public void update(Coche coche) {
         if (coche.velocidad > VELOCIDAD_LIMITE) {
-            System.out.println("Limite de velocidad sobrepasado");
+            System.out.println("Limite de velocidad sobrepasado, vamos a reducirla");
+
         }
     }
 }

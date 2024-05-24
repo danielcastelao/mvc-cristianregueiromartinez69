@@ -89,6 +89,15 @@ public class Model implements Observable {
         }
     }
 
+
+    public void reducirVelocidad(String matricula, int newVelocidad){
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad = getVelocidad(matricula) - newVelocidad;
+            notifyObservers(coche);
+        }
+    }
+
     /**
      * Devuelve la velocidad de un coche
      * @param matricula del coche
