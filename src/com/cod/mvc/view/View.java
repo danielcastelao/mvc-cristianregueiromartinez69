@@ -1,19 +1,36 @@
 package com.cod.mvc.view;
 
-import com.cod.mvc.model.Model;
+import javax.swing.*;
 
 /**
- * Clase View que representa la vista de nuestra aplicación
- * @autor cristian
- * @version v2.0
+ * Entorno gráfico
  */
 public class View {
+
+      static JPanel botonera = Botonera.crearBotonera();
+
     /**
-     * Muestra la velocidad actual del coche cuya matricula se le haya proporcionado
-     * @param matricula identificador unico del coche
-     * @param velocidad variable que se quiere mostrar
+     * Inicializamos el entorno gráfico
      */
-    public static void muestraVelocidad(String matricula,int velocidad){
-        System.out.println("La velocidad del coche con matricula "+matricula+", es "+ velocidad+" Km/h");
+    public static void crearVentana() {
+        IU.crearVentana(botonera);
     }
+
+    /**
+     * Muestra la velocidad
+     * @param matricula del coche
+     * @param v velocidad que queremos mostrar
+     * @return true si todo bien
+     */
+    public static boolean mostrarVelocidad(String matricula, Integer v){
+        botonera.setBorder(BorderFactory.createTitledBorder("Mostrando velocidad de " + matricula));
+
+        String mensaje = "Coche " + matricula + " velocidad: " + v + "km/h";
+
+        Dialog.mostrarMensaje(mensaje);
+
+        botonera.setBorder(BorderFactory.createTitledBorder("Cambiar velocidad"));
+        return true;
+    }
+
 }
