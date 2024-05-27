@@ -9,7 +9,7 @@ import com.cod.mvc.model.Model;
  */
 public class Controller {
 
-    private final Model miModel;
+    private static Model miModel;
 
     /**
      * Constructor de la clase
@@ -31,7 +31,7 @@ public class Controller {
      * @param modelo del coche
      * @param matricula por la que buscar el coche
      */
-    public void crearCoche(String matricula, String modelo) {
+    public static void crearCoche(String matricula, String modelo) {
         miModel.crearCoche(matricula, modelo);
     }
 
@@ -40,7 +40,7 @@ public class Controller {
      * @param matricula por la que buscar el coche
      * @param velocidad nueva
      */
-    public void cambiarVelocidad(String matricula, int velocidad) {
+    public static void cambiarVelocidad(String matricula, int velocidad) {
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 }
