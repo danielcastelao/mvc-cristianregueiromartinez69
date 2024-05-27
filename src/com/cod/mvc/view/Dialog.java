@@ -1,4 +1,3 @@
-
 package com.cod.mvc.view;
 
 import javax.swing.*;
@@ -11,6 +10,7 @@ public class Dialog extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setResizable(true);
     }
 
     /**
@@ -19,10 +19,9 @@ public class Dialog extends JDialog {
      */
     public static void mostrarMensaje(String msg) {
         Dialog dialog = new Dialog();
-        dialog.pack();
-        dialog.setLocation(800, 500);
-        // actualizamos mensaje
         dialog.mensaje.setText(msg);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null); // Centramos el diálogo después de ajustar el tamaño
         dialog.setVisible(true);
     }
 }

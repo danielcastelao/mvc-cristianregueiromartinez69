@@ -20,14 +20,12 @@ public class Botonera {
      * tendrá los listener de la interfaz gráfica
      */
     public Botonera() {
-        // el panel se inicializa en el 'form' al asignarlo
-        // panel = new JPanel();
+
 
         button_cambiar.addActionListener(e -> {
-            // debug
-            System.out.println("[Botonera Listener] cambiando velocidad");
             Controller miController = new Controller(new Model());
             miController.cambiarVelocidad(text_matricula.getText(), Integer.valueOf(text_cambiar.getText()));
+            Dialog.mostrarMensaje("Velocidad cambiada: " + text_cambiar.getText() + "km/h");
         });
     }
 

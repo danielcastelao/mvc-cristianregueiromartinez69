@@ -27,10 +27,9 @@ public class IU {
         crearCoche.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // debug
-                System.out.println("[IU Listener] creando coche");
                 Controller miController = new Controller(new Model());
                 miController.crearCoche(modelo.getText(), matricula.getText());
+                Dialog.mostrarMensaje("Coche creado: " + modelo.getText() + " " + matricula.getText());
             }
         });
     }
@@ -45,11 +44,9 @@ public class IU {
         IU iu = new IU();
 
 
-        // agragamos los paneles al panel principal
         mainPanel.add(iu.panel, BorderLayout.NORTH);
         mainPanel.add(botonera, BorderLayout.SOUTH);
 
-        // Configuramos el JFrame
         jframe.setContentPane(mainPanel);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setLocation(500, 500);
