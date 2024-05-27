@@ -1,18 +1,13 @@
+
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
 
+
 /**
- * Interface observer de la aplicacion
- * @author cristian
- * @version v2.0
+ * Interfaz Observer
  */
 public interface Observer {
-
-
-    /**
-     * metodo que se ejecuta si cambian las propiedades de nuestro objeto de tipo coche
-     * @param arg el atributo que cambia
-     */
+    // metodo que se ejecutará cuando el objeto observado cambie
     void update(Coche arg);
 }

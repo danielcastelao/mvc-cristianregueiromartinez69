@@ -1,31 +1,17 @@
+
 package com.cod.mvc.model;
 
 import com.cod.mvc.controller.Observer;
+import com.cod.mvc.model.Coche;
 
 /**
- * Interface observable de nuestra aplicación
- * @author cristian
- * @version v2.0
+ * Interfaz Observable
  */
 public interface Observable {
-
-
-    /**
-     * metodo para añadir un observador
-     * @param observer el objeto de tipo Observer
-     */
-        void addObserver(Observer observer);
-
-    /**
-     * metodo para eliminar un observador
-     * @param observer el objeto de tipo observer
-     */
+    // añade un observador
+    void addObserver(Observer observer);
+    // elimina un observador
     void removeObserver(Observer observer);
-
-    /**
-     * metodo para notificar a nuestros observadores
-     * @param coche el Objeto de tipo Coche
-     */
-        void notifyObservers(Coche coche);
-    }
-
+    // notifica a los observadores
+    void notifyObservers(Coche coche);
+}

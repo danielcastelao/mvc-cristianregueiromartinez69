@@ -1,27 +1,37 @@
+
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
+import com.cod.mvc.model.Model;
 
 /**
- * Clase que implementa la interfaz Observer y comprueba si el coche supera el limite de velocidad
- * @version v2.0
- * @autor cristian
+ * Otro observador que se suscribe a los cambios de velocidad de un coche
  */
 public class ObserverLimite implements Observer {
+    // velocidad máxima
+    final static int LIMITE = 120;
+    private final Model miModel;
 
     /**
-     * Velocidad maxima
+     * Constructor
+     * @param miModel el modelo para poder hacer cambios
      */
-    public static final int VELOCIDAD_LIMITE = 120;
+    public ObserverLimite(Model miModel) {
+        this.miModel = miModel;
+    }
 
     /**
-     * Comprueba si el coche cuya velocidad se ha actualizado supera el limite de velocidad
-     * @param coche el objeto tipo coche que se ha actualizado
+     * Este es el observador de limite de velocidad
+     * @param coche Coche al que se le actualizó la velocidad
      */
     @Override
     public void update(Coche coche) {
-        if (coche.velocidad > VELOCIDAD_LIMITE) {
-            System.out.println("Limite de velocidad sobrepasado");
+        // verificamos veloidad máxima
+        if (coche.velocidad > LIMITE) {
+            // avisamos de una infracción
+            System.out.println("[ObserverLimite] INFRACCION");
+            // bajamos la velocidad 10 km/hr
+            miModel.cambiarVelocidad(coche.matricula, coche.velocidad - 10);
         }
     }
 }

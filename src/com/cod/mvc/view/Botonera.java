@@ -1,6 +1,8 @@
+
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
+import com.cod.mvc.model.Model;
 
 import javax.swing.*;
 
@@ -13,16 +15,27 @@ public class Botonera {
     private JTextField text_cambiar;
     private JButton button_cambiar;
 
-
+    /**
+     * Constructor de la clase Botonera
+     * tendrá los listener de la interfaz gráfica
+     */
     public Botonera() {
+        // el panel se inicializa en el 'form' al asignarlo
+        // panel = new JPanel();
 
         button_cambiar.addActionListener(e -> {
-
-            Controller.cambiarVelocidad(text_matricula.getText(), Integer.valueOf(text_cambiar.getText()));
+            // debug
+            System.out.println("[Botonera Listener] cambiando velocidad");
+            Controller miController = new Controller(new Model());
+            miController.cambiarVelocidad(text_matricula.getText(), Integer.valueOf(text_cambiar.getText()));
         });
     }
 
-
+    /**
+     * Inicializa Botonera para cambiar velocidad
+     *
+     * @return JPanel con los elementos de la botonera
+     */
 
     public static JPanel crearBotonera() {
         return new Botonera().panel;

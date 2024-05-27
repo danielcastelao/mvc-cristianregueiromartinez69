@@ -1,3 +1,4 @@
+
 package com.cod.mvc.view;
 
 import javax.swing.*;
@@ -7,7 +8,9 @@ import javax.swing.*;
  */
 public class View {
 
-      static JPanel botonera = Botonera.crearBotonera();
+    // inicializamos elementos del entorno gráfico
+    // Botonera es un JPanel que contiene los elementos para cambiar la velocidad
+    static JPanel botonera = Botonera.crearBotonera();
 
     /**
      * Inicializamos el entorno gráfico
@@ -23,12 +26,14 @@ public class View {
      * @return true si todo bien
      */
     public static boolean mostrarVelocidad(String matricula, Integer v){
+        // modificamos interfaz gráfica
         botonera.setBorder(BorderFactory.createTitledBorder("Mostrando velocidad de " + matricula));
 
         String mensaje = "Coche " + matricula + " velocidad: " + v + "km/h";
 
         Dialog.mostrarMensaje(mensaje);
 
+        // Volvemos a poner el titulo de la botonera
         botonera.setBorder(BorderFactory.createTitledBorder("Cambiar velocidad"));
         return true;
     }

@@ -2,45 +2,28 @@ package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Model;
 
-/**
- * Clase controlador de la aplicacion
- * @version v2.0
- * @autor cristian
- */
-public class Controller {
+public class Controller{
 
-    private static Model miModel;
+    // remove the static keyword
+    private Model miModel;
 
-    /**
-     * Constructor de la clase
-     * @param miModel objeto de tipo Model
-     */
-    public Controller(Model miModel) {
+    public Controller(Model miModel){
         this.miModel = miModel;
 
-        // Añadimos los observadores al modelo
-        ObserverVelocidad obVelocidad = new ObserverVelocidad();
-        miModel.addObserver(obVelocidad);
+        ObserverVelocidad observoVelocidad = new ObserverVelocidad(miModel);
+        miModel.addObserver(observoVelocidad);
 
-        ObserverLimite obLimite = new ObserverLimite();
-        miModel.addObserver(obLimite);
+        ObserverLimite observoLimite = new ObserverLimite(miModel);
+        miModel.addObserver(observoLimite);
     }
 
-    /**
-     * Crea un coche
-     * @param modelo del coche
-     * @param matricula por la que buscar el coche
-     */
-    public static void crearCoche(String matricula, String modelo) {
-        miModel.crearCoche(matricula, modelo);
+    // remove the static keyword
+    public void crearCoche(String nombre, String matricula){
+        miModel.crearCoche(nombre, matricula);
     }
 
-    /**
-     * Cambiar la velocidad de un coche
-     * @param matricula por la que buscar el coche
-     * @param velocidad nueva
-     */
-    public static void cambiarVelocidad(String matricula, int velocidad) {
+    // remove the static keyword
+    public void cambiarVelocidad(String matricula, Integer velocidad){
         miModel.cambiarVelocidad(matricula, velocidad);
     }
 }

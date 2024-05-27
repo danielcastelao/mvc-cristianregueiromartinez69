@@ -1,46 +1,35 @@
+
 package com.cod.mvc.model;
 
 import com.cod.mvc.controller.Observer;
 
 import java.util.ArrayList;
 
+
 /**
- * Clase que implementa la interfaz Observable y se encarga de gestionar los coches y notificar a los observers de un cambio
- * @version v2.0
- * @autor cristian
+ * Vamos a usar la interface Observable
+ * El Model será el encargado de notificar a los observadores
  */
 public class Model implements Observable {
+    // array de coches
+    public static ArrayList<Coche> parking = new ArrayList<>();
 
-    /**
-     * Lista de coches
-     */
-    private final ArrayList<Coche> parking = new ArrayList<>();
-    /**
-     * Lista de observers
-     */
-    private final ArrayList<Observer> observers = new ArrayList<>();
+    // para los observadores
+    private static final ArrayList<Observer> observers = new ArrayList<Observer>();
 
-    /**
-     * Añade un observer a la lista de observers
-     * @param observer el observer a añadir
-     */
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
-
-    /**
-     * Elimina un observer de la lista de observers
-     * @param observer el observer a eliminar
-     */
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
     /**
-     * Notifica a los observers de un cambio
-     * @param coche el coche que ha cambiado
+     * Notifica a los observadores
+     * Se ejecutara el método update() de cada observador
+     * @param coche
      */
     @Override
     public void notifyObservers(Coche coche) {
@@ -49,53 +38,60 @@ public class Model implements Observable {
         }
     }
 
+
     /**
-     * Crea un coche y lo añade a la lista de coches
-     * @param matricula del coche
+     * Crea un coche y lo mete en el parking
      * @param modelo del coche
+     * @param matricula identificador unico
      * @return el coche creado
      */
-    public Coche crearCoche(String matricula, String modelo) {
-        Coche cocheNuevo = new Coche(matricula, modelo);
-        parking.add(cocheNuevo);
-        notifyObservers(cocheNuevo);
-        return cocheNuevo;
+    public Coche crearCoche(String modelo, String matricula){
+        Coche aux = new Coche(modelo, matricula);
+        parking.add(aux);
+        return aux;
     }
 
     /**
-     * Busca un coche por matricula
-     * @param matricula del coche
-     * @return el coche encontrado o null si no existe
+     * Busca coche segun matricula
+     * @param matricula a buscar
+     * @return chche o null si no existe
      */
-    public Coche getCoche(String matricula) {
-        for (Coche coche : parking) {
-            if (coche.matricula.equals(matricula)) {
-                return coche;
+    public Coche getCoche(String matricula){
+        Coche aux = null;
+        // recorre el array buscando por matricula
+        for (Coche e: parking) {
+            if (e.matricula.equals(matricula)) {
+                aux = e;
             }
         }
-        return null;
+        return aux;
     }
 
     /**
-     * Cambia la velocidad de un coche y notifica a los observers
-     * @param matricula del coche
-     * @param velocidad nueva
+     * Método que cambia la velocidad, por lo tanto
+     * tendrá que avisar al controlador que ha cambiado
+     *
+     * @param matricula identificador del coche
+     * @param v nueva velocidad
      */
-    public void cambiarVelocidad(String matricula, int velocidad) {
+    public void cambiarVelocidad(String matricula, Integer v) {
+        // busca el coche
         Coche coche = getCoche(matricula);
-        if (coche != null) {
-            coche.velocidad = velocidad;
-            notifyObservers(coche);
+        if (coche == null) {
+            return;
         }
+
+        coche.velocidad = v;
+
+        notifyObservers(coche);
     }
 
     /**
-     * Devuelve la velocidad de un coche
-     * @param matricula del coche
-     * @return la velocidad del coche o null si no existe
+     * Devuelve la velocidad según la matrícula
+     * @param matricula identificador del coche
+     * @return velocidad del coche actual
      */
     public Integer getVelocidad(String matricula) {
-        Coche coche = getCoche(matricula);
-        return coche != null ? coche.velocidad : null;
+        return getCoche(matricula).velocidad;
     }
 }
