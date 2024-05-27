@@ -7,20 +7,33 @@ import java.util.ArrayList;
 
 
 /**
- * Vamos a usar la interface Observable
- * El Model será el encargado de notificar a los observadores
+ * Clase Model que implementa la interfaz Observable
+ * @author cristian
+ * @version 3.0
  */
 public class Model implements Observable {
-    // array de coches
+    /**
+     * Array de coches
+     */
     public static ArrayList<Coche> parking = new ArrayList<>();
 
-    // para los observadores
+    /**
+     * Array de observadores
+     */
     private static final ArrayList<Observer> observers = new ArrayList<Observer>();
 
+    /**
+     * Añade un observador
+     * @param observer añadido
+     */
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
+    /**
+     * Elimina un observador
+     * @param observer eliminado
+     */
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
@@ -29,7 +42,7 @@ public class Model implements Observable {
     /**
      * Notifica a los observadores
      * Se ejecutara el método update() de cada observador
-     * @param coche
+     * @param coche para observar
      */
     @Override
     public void notifyObservers(Coche coche) {

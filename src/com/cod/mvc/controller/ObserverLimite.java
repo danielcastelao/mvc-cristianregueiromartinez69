@@ -3,13 +3,21 @@ package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
+import com.cod.mvc.view.Dialog;
 
 /**
- * Otro observador que se suscribe a los cambios de velocidad de un coche
+ * Clase ObserverLimite
+ * @author cristian
+ * @version 3.0
  */
 public class ObserverLimite implements Observer {
-    // velocidad máxima
+    /**
+     * Atributo LIMITE con la velocidad limite permitida
+     */
     final static int LIMITE = 120;
+    /**
+     * Atributo miModel de la clase Model
+     */
     private final Model miModel;
 
     /**
@@ -21,17 +29,24 @@ public class ObserverLimite implements Observer {
     }
 
     /**
-     * Este es el observador de limite de velocidad
-     * @param coche Coche al que se le actualizó la velocidad
+     * Método update para avisar a los observers
+     * @param coche el argumento que le pasemos
      */
     @Override
     public void update(Coche coche) {
-        // verificamos veloidad máxima
+        /**
+         * Si la velocidad del coche es mayor que el límite
+         */
         if (coche.velocidad > LIMITE) {
-            // avisamos de una infracción
-            System.out.println("[ObserverLimite] INFRACCION");
-            // bajamos la velocidad 10 km/hr
+
+            /**
+             * Cambiamos la velocidad del coche
+             */
             miModel.cambiarVelocidad(coche.matricula, coche.velocidad - 10);
+            /**
+             * Mostramos un mensaje
+             */
+            Dialog.mostrarMensaje("Vamos muy rapido pendejo, " + "Velocidad reducida a " + (coche.velocidad - 10) + "km/h");
         }
     }
 }

@@ -6,8 +6,14 @@ import com.cod.mvc.model.Coche;
 
 /**
  * Interfaz Observer
+ * @author cristian
+ * @version 3.0
  */
 public interface Observer {
-    // metodo que se ejecutará cuando el objeto observado cambie
+    /**
+     * Método update
+     * @param arg el argumento que le pasemos
+     */
     void update(Coche arg);
+
 }

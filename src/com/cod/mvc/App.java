@@ -6,8 +6,8 @@ import com.cod.mvc.view.View;
 
 /**
  * clase app donde ejecutamos el programa
- * @autor cristian
- * @version v2.0
+ * @author cristian
+ * @version v3.0
  */
 public class App {
     public static void main(String[] args) {

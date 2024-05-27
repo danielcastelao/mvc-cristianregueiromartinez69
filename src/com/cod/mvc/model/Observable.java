@@ -6,12 +6,27 @@ import com.cod.mvc.model.Coche;
 
 /**
  * Interfaz Observable
+ * @author cristian
+ * @version 3.0
  */
 public interface Observable {
-    // añade un observador
+
+    /**
+     * Añade un observador
+     * @param observer a añadir
+
+     */
     void addObserver(Observer observer);
-    // elimina un observador
+
+    /**
+     * Elimina un observador
+     * @param observer a eliminar
+     */
     void removeObserver(Observer observer);
-    // notifica a los observadores
+
+    /**
+     * Notifica a los observadores
+     * @param coche para observar
+     */
     void notifyObservers(Coche coche);
 }

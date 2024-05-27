@@ -4,7 +4,7 @@ package com.cod.mvc.model;
 /**
  * Clase Coche que representa un coche de nuestra aplicación
  * @author cristian
- * @version v2.0
+ * @version v3.0
  */
 public class Coche {
 
@@ -32,6 +32,9 @@ public class Coche {
         this.velocidad = 0;
     }
 
+    /**
+     * getter y setter de los atributos del coche
+     */
     public String getMatricula() {
         return matricula;
     }

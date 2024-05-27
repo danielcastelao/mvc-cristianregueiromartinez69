@@ -2,10 +2,21 @@ package com.cod.mvc.view;
 
 import javax.swing.*;
 
+/**
+ * Clase Dialog con los mensajes cada vez que cambiemos algo
+ * @author cristian
+ * @version 3.0
+ */
 public class Dialog extends JDialog {
+    /**
+     * Elementos de la ventana
+     */
     private JPanel contentPane;
     private JLabel mensaje;
 
+    /**
+     * Constructor de la clase Dialog
+     */
     public Dialog() {
         setContentPane(contentPane);
         setModal(true);
@@ -21,7 +32,9 @@ public class Dialog extends JDialog {
         Dialog dialog = new Dialog();
         dialog.mensaje.setText(msg);
         dialog.pack();
-        dialog.setLocationRelativeTo(null); // Centramos el diálogo después de ajustar el tamaño
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
+
+
 }

@@ -4,13 +4,16 @@ package com.cod.mvc.view;
 import javax.swing.*;
 
 /**
- * Entorno gráfico
+ * Clase View con el entorno gráfico
+ * @author cristian
+ * @version 3.0
  */
 public class View {
 
-    // inicializamos elementos del entorno gráfico
-    // Botonera es un JPanel que contiene los elementos para cambiar la velocidad
-    static JPanel botonera = Botonera.crearBotonera();
+    /**
+     * Botonera con los botones
+     */
+     static JPanel botonera = Botonera.crearBotonera();
 
     /**
      * Inicializamos el entorno gráfico
@@ -23,17 +26,29 @@ public class View {
      * Muestra la velocidad
      * @param matricula del coche
      * @param v velocidad que queremos mostrar
-     * @return true si todo bien
+     * @return true si va genial y false si no
      */
     public static boolean mostrarVelocidad(String matricula, Integer v){
-        // modificamos interfaz gráfica
+
+        /**
+         * Cambiamos el titulo de la botonera
+         */
         botonera.setBorder(BorderFactory.createTitledBorder("Mostrando velocidad de " + matricula));
 
+        /**
+         * Creamos el mensaje
+         */
         String mensaje = "Coche " + matricula + " velocidad: " + v + "km/h";
 
+        /**
+         * Mostramos el mensaje
+         */
         Dialog.mostrarMensaje(mensaje);
 
-        // Volvemos a poner el titulo de la botonera
+
+        /**
+         * volvemos a cambiar el titulo de la botonera
+         */
         botonera.setBorder(BorderFactory.createTitledBorder("Cambiar velocidad"));
         return true;
     }
