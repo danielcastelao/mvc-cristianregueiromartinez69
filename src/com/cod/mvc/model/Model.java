@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * @version 3.0
  */
 public class Model implements Observable {
+
+    private static Model modelInstance = null;
     /**
      * Array de coches
      */
