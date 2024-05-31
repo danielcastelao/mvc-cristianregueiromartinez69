@@ -12,6 +12,18 @@ import java.util.ArrayList;
  * @version 3.0
  */
 public class Model implements Observable {
+
+    /**
+     * Instancia de la clase model que siempre será  null
+     */
+    private static Model modelInstance = null;
+
+    /**
+     * Constructor privado para poder hacer el singleton
+     */
+    private Model() {
+    }
+
     /**
      * Array de coches
      */
@@ -106,5 +118,16 @@ public class Model implements Observable {
      */
     public Integer getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
+    }
+
+    /**
+     * Método que devuelve la instancia de la clase que siempre será unica
+     * @return la instancia de la clase
+     */
+    public static Model getInstance() {
+        if (modelInstance == null) {
+            modelInstance = new Model();
+        }
+        return modelInstance;
     }
 }

@@ -38,8 +38,9 @@ public class IU {
             public void actionPerformed(ActionEvent e) {
                 /**
                  * Creamos un nuevo controlador
+                 * si nos fijamos, en el controlador se le pasa el modelo que es el getInstance
                  */
-                Controller miController = new Controller(new Model());
+                Controller miController = new Controller(Model.getInstance());
                 /**
                  * Creamos un coche
                  */
