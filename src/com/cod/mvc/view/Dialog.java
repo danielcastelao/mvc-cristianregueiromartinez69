@@ -21,6 +21,7 @@ public class Dialog extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
         setResizable(true);
     }
 

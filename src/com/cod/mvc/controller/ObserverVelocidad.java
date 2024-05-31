@@ -29,6 +29,5 @@ public class ObserverVelocidad implements Observer {
     @Override
     public void update(Coche arg) {
         View.mostrarVelocidad(arg.matricula, arg.velocidad);
-
     }
 }

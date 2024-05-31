@@ -51,4 +51,12 @@ public class Controller{
     public void cambiarVelocidad(String matricula, Integer velocidad){
         miModel.cambiarVelocidad(matricula, velocidad);
     }
+
+    /**
+     * Busca un coche y nos muestra sus datos
+     * @param matricula del coche
+     */
+    public void buscarCoche(String matricula){
+        miModel.getDatosCoche(matricula);
+    }
 }

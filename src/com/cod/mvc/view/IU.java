@@ -20,6 +20,7 @@ public class IU {
      * Elementos de la interfaz gráfica
      */
     private JButton crearCoche;
+    private JButton buscarCoche;
     public JPanel panel;
     private JTextField modelo;
     private JTextField matricula;
@@ -39,7 +40,7 @@ public class IU {
                 /**
                  * Creamos un nuevo controlador
                  */
-                Controller miController = new Controller(new Model());
+                Controller miController = new Controller(Model.getInstance());
                 /**
                  * Creamos un coche
                  */
@@ -55,7 +56,31 @@ public class IU {
                 matricula.setText("");
             }
         });
+        buscarCoche = new JButton("Buscar Coche");
+        buscarCoche.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /**
+                 * Creamos un nuevo controlador
+                 */
+                Controller miController = new Controller(Model.getInstance());
+                /**
+                 * Buscamos un coche
+                 */
+                miController.buscarCoche(matricula.getText());
+                /**
+                 * Mostramos el mensaje
+                 */
+                Dialog.mostrarMensaje("Coche buscado: " + matricula.getText());
+                /**
+                 * Limpiamos los campos
+                 */
+                modelo.setText("");
+                matricula.setText("");
+            }
+        });
     }
+
 
     /**
      * Inicializa la Interfaz del Usuario

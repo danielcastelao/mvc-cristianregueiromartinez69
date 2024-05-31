@@ -21,6 +21,8 @@ public class Coche {
      */
     public Integer velocidad;
 
+    public static int auxVelocidad;
+
     /**
      * Constructor de la clase
      * @param matricula del coche
@@ -29,7 +31,7 @@ public class Coche {
     public Coche(String matricula, String modelo) {
         this.matricula = matricula;
         this.modelo = modelo;
-        this.velocidad = 0;
+        this.velocidad = auxVelocidad;
     }
 
     /**
@@ -57,5 +59,25 @@ public class Coche {
 
     public void setVelocidad(Integer velocidad) {
         this.velocidad = velocidad;
+    }
+
+    public static int getAuxVelocidad() {
+        return auxVelocidad;
+    }
+
+    public static void setAuxVelocidad(int auxVelocidad) {
+        Coche.auxVelocidad = auxVelocidad;
+    }
+
+    /**
+     * Método toString
+     * @return el coche en formato String
+     */
+    @Override
+    public String toString() {
+        return "Coche: " +
+                "\nmatricula: " + matricula  +
+                "\nmodelo: " + modelo +
+                "\nvelocidad: " + velocidad;
     }
 }
