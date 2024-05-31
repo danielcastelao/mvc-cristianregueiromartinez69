@@ -2,6 +2,7 @@
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
+import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 
 import javax.swing.*;
@@ -24,6 +25,8 @@ public class Botonera {
     private JTextField text_cambiar;
     private JButton button_cambiar;
 
+    Model model = Model.getInstance();
+
     /**
      * Constructor de la clase Botonera
      * tendrá los listener de la interfaz gráfica
@@ -38,16 +41,18 @@ public class Botonera {
             /**
              * Creamos un nuevo controlador
              */
-            Controller miController = new Controller(new Model());
+            Controller miController = new Controller(Model.getInstance());
             /**
              * Cambiamos la velocidad
              */
-            miController.cambiarVelocidad(text_matricula.getText(), Integer.valueOf(text_cambiar.getText()));
+            Coche.setAuxVelocidad(Integer.parseInt(text_cambiar.getText()));
+            miController.buscarCoche(text_matricula.getText());
 
             /**
              * Mostramos el mensaje
              */
-            Dialog.mostrarMensaje("Velocidad cambiada: " + text_cambiar.getText() + "km/h");
+
+            Dialog.mostrarMensaje("datos del coche: " + model.getDatosCoche(text_matricula.getText()));
             /**
              * Limpiamos los campos
              */

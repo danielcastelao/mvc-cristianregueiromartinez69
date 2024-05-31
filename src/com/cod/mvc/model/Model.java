@@ -12,6 +12,13 @@ import java.util.ArrayList;
  * @version 3.0
  */
 public class Model implements Observable {
+
+    private static Model modelInstance = null;
+
+    private Model() {
+    }
+
+
     /**
      * Array de coches
      */
@@ -64,21 +71,33 @@ public class Model implements Observable {
         return aux;
     }
 
+
+
     /**
-     * Busca coche segun matricula
-     * @param matricula a buscar
-     * @return chche o null si no existe
+     * Devuelve un coche según la matrícula
+     * @param matricula identificador del coche
+     * @return el coche
      */
-    public Coche getCoche(String matricula){
+    public Coche getDatosCoche(String matricula){
+        /**
+         * Iniciamos una variable coche a null
+         */
         Coche aux = null;
-        // recorre el array buscando por matricula
+        /**
+         * Recorremos el parking
+         */
         for (Coche e: parking) {
+            /**
+             * Si la matrícula coincide con la matrícula del coche devuelve el coche
+             */
             if (e.matricula.equals(matricula)) {
                 aux = e;
             }
         }
         return aux;
     }
+
+
 
     /**
      * Método que cambia la velocidad, por lo tanto
@@ -89,7 +108,7 @@ public class Model implements Observable {
      */
     public void cambiarVelocidad(String matricula, Integer v) {
         // busca el coche
-        Coche coche = getCoche(matricula);
+        Coche coche = getDatosCoche(matricula);
         if (coche == null) {
             return;
         }
@@ -105,6 +124,13 @@ public class Model implements Observable {
      * @return velocidad del coche actual
      */
     public Integer getVelocidad(String matricula) {
-        return getCoche(matricula).velocidad;
+        return getDatosCoche(matricula).velocidad;
+    }
+
+    public static Model getInstance() {
+        if (modelInstance == null) {
+            modelInstance = new Model();
+        }
+        return modelInstance;
     }
 }
