@@ -24,6 +24,7 @@ public class Botonera {
     private JTextField text_cambiar;
     private JButton button_cambiar;
 
+
     /**
      * Constructor de la clase Botonera
      * tendrá los listener de la interfaz gráfica
@@ -37,8 +38,9 @@ public class Botonera {
         button_cambiar.addActionListener(e -> {
             /**
              * Creamos un nuevo controlador
+             * si nos fijamos, en el controlador se le pasa el modelo que es el getInstance
              */
-            Controller miController = new Controller(new Model());
+            Controller miController = new Controller(Model.getInstance());
             /**
              * Cambiamos la velocidad
              */
