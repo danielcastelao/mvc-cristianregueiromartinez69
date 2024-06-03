@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * Clase Dialog con los mensajes cada vez que cambiemos algo
  * @author cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Dialog extends JDialog {
     /**
@@ -21,6 +21,7 @@ public class Dialog extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
         setResizable(true);
     }
 

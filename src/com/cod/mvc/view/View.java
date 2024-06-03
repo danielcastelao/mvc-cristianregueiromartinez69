@@ -1,4 +1,3 @@
-
 package com.cod.mvc.view;
 
 import javax.swing.*;
@@ -6,14 +5,14 @@ import javax.swing.*;
 /**
  * Clase View con el entorno gráfico
  * @author cristian
- * @version 3.0
+ * @version 4.0
  */
 public class View {
 
     /**
      * Botonera con los botones
      */
-     static JPanel botonera = Botonera.crearBotonera();
+    static JPanel botonera = Botonera.crearBotonera();
 
     /**
      * Inicializamos el entorno gráfico
@@ -28,7 +27,7 @@ public class View {
      * @param v velocidad que queremos mostrar
      * @return true si va genial y false si no
      */
-    public static boolean mostrarVelocidad(String matricula, Integer v){
+    public static void mostrarVelocidad(String matricula, Integer v){
 
         /**
          * Cambiamos el titulo de la botonera
@@ -49,8 +48,7 @@ public class View {
         /**
          * volvemos a cambiar el titulo de la botonera
          */
-        botonera.setBorder(BorderFactory.createTitledBorder("Cambiar velocidad"));
-        return true;
     }
 
 }
+

@@ -1,4 +1,3 @@
-
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
@@ -7,10 +6,9 @@ import com.cod.mvc.model.Model;
 import javax.swing.*;
 
 /**
- * Clase Botonera
- * Clase que contiene los elementos de la botonera
+ * Clase Botonera que contiene los elementos de la botonera
  * @author Cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Botonera {
 
@@ -20,9 +18,19 @@ public class Botonera {
     public JPanel panel;
     private JTextField text_matricula;
     private JLabel label_matricula;
-    private JLabel label_cambiar;
-    private JTextField text_cambiar;
-    private JButton button_cambiar;
+    private JButton button_obtener;
+    private JLabel matriculaSubirLabel;
+    private JTextField matriculaSubirText;
+    private JLabel VelocidadSubirLabel;
+    private JButton subirVelocidadButton;
+    private JTextField subirVelocidadText;
+    private JTextField textMatriculaBajar;
+    private JLabel velocidadBajarLabel;
+    private JTextField velocidadBajarText;
+    private JButton bajarVelocidadButton;
+    private JLabel matriculaLabelBajar;
+
+    Model model = Model.getInstance();
 
     /**
      * Constructor de la clase Botonera
@@ -34,25 +42,64 @@ public class Botonera {
         /**
          * Listener del boton cambiar
          */
-        button_cambiar.addActionListener(e -> {
+        button_obtener.addActionListener(e -> {
             /**
              * Creamos un nuevo controlador
              */
-            Controller miController = new Controller(new Model());
+            Controller miController = new Controller(Model.getInstance());
             /**
              * Cambiamos la velocidad
              */
-            miController.cambiarVelocidad(text_matricula.getText(), Integer.valueOf(text_cambiar.getText()));
+            miController.buscarCoche(text_matricula.getText());
 
             /**
              * Mostramos el mensaje
              */
-            Dialog.mostrarMensaje("Velocidad cambiada: " + text_cambiar.getText() + "km/h");
+
+            Dialog.mostrarMensaje("datos del coche: " + model.getDatosCoche(text_matricula.getText()));
             /**
              * Limpiamos los campos
              */
             text_matricula.setText("");
-            text_cambiar.setText("");
+        });
+
+        subirVelocidadButton.addActionListener(e -> {
+            /**
+             * Creamos un nuevo controlador
+             */
+            Controller miController = new Controller(model);
+            /**
+             * Cambiamos la velocidad
+             */
+            miController.subirVelocidad(matriculaSubirText.getText(), Integer.valueOf(subirVelocidadText.getText()));
+
+            /**
+             * Mostramos el mensaje
+             */
+            View.mostrarVelocidad(matriculaSubirText.getText(), Integer.valueOf(subirVelocidadText.getText()));
+            /**
+             * Limpiamos los campos
+             */
+            matriculaSubirText.setText("");
+        });
+        bajarVelocidadButton.addActionListener(e -> {
+            /**
+             * Creamos un nuevo controlador
+             */
+            Controller miController = new Controller(model);
+            /**
+             * Cambiamos la velocidad
+             */
+            miController.bajarVelocidad(textMatriculaBajar.getText(), Integer.valueOf(velocidadBajarText.getText()));
+
+            /**
+             * Mostramos el mensaje
+             */
+            View.mostrarVelocidad(textMatriculaBajar.getText(), Integer.valueOf(velocidadBajarText.getText()));
+            /**
+             * Limpiamos los campos
+             */
+            textMatriculaBajar.setText("");
         });
     }
 

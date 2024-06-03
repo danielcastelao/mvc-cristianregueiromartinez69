@@ -2,41 +2,118 @@
 
 Tarea para implementar arquitectura MVC
 
-Utiliza objetos coches, modifica la velocidad y la muestra
-
----
-
-## Clases ```Controller``` y ```Model```
-
-- Implementa la clase ```Controller``` y ```Model``` según el diagrama de clases.
-
-- Implementa los métodos ```crearCoche()```, ```getCoche()```, ```cambiarVelocidad()``` y ```getVelocidad()```
-
-- Realiza los test necesarios para comprobar que funcionan correctamente
 
 ### Diagrama de clases:
-
+Diagrama de clases de la aplicación
 ```mermaid
 classDiagram
     class Coche {
-        String: matricula
         String: modelo
+        String: matricula
         Integer: velocidad
     }
-      class Controller{
-          +main()
+     
+      class View {
+      + botonera : JPanel
+      + crearVentana()
+      + mostrarVelocidad(String, Integer)
       }
-      class View {+muestraVelocidad(String, Integer)}
+      
+    class Botonera {
+        -JPanel panel
+        -JTextField text_matricula
+        -JLabel label_matricula
+        -JButton button_obtener
+        -JLabel matriculaSubirLabel
+        -JTextField matriculaSubirText
+        -JLabel VelocidadSubirLabel
+        -JButton subirVelocidadButton
+        -JTextField subirVelocidadText
+        -JTextField textMatriculaBajar
+        -JLabel velocidadBajarLabel
+        -JTextField velocidadBajarText
+        -JButton bajarVelocidadButton
+        -JLabel matriculaLabelBajar
+        -Model model
+        +Botonera()
+        +static JPanel crearBotonera()
+    }
+      
+    class Dialog {
+        -JPanel contentPane
+        -JLabel mensaje
+        +Dialog()
+        +static void mostrarMensaje(String)
+    }
+    class IU {
+        -JButton crearCoche
+        -JButton buscarCoche
+        -JButton subirVelocidad
+        -JButton bajarVelocidad
+        -JPanel panel
+        -JTextField modelo
+        -JTextField matricula
+        -JTextField velocidadCoche
+        -Model model
+        +IU()
+        +static void crearVentana(JPanel)
+    }
+        
+      
+     
       class Model {
-          ArrayList~Coche~: parking
-          +crearCoche(String, String, String)
-          +getCoche(String)
-          +cambiarVelocidad(String, Integer)
-          +getVelocidad(String)
+         ~ model Model
+         +parking : ArrayList<Coche>
+         +crearCoche(String, String, Integer)
+         +cambiarVelocidad(String, Integer)
+         + getDatosCoche(String)
+         +getVelocidad(String)
+         +subirVelocidad(String, Integer)
+         +bajarVelocidad(String, Integer)
+         +getInstance()      
       }
-    Controller "1" *-- "1" Model : association
-    Controller "1" *-- "1" View : association
-    Model "1" *-- "1..n" Coche : association
+      class Observable{
+            +addObserver(Observer)
+            +removeObserver(Observer)
+            +notifyObservers(Coche coche)
+      }
+      class Controller{
+          +crearCoche(String, String)
+          +cambiarVelocidad(String, Integer)
+          +buscarCoche(String)
+          +subirVelocidad(String, Integer)
+          +bajarVelocidad(String, Integer)
+      }
+      class Observer{
+          +update()
+      }
+      class ObserverBajarVelocidad{
+          ~ BAJAR : Integer
+          +update()
+      }
+     class ObserverSubirVelocidad{
+            ~ SUBIR : Integer
+            +update()
+     }
+     class ObserverVelocidad{
+        +update()
+     }
+     class ObserverLimite{
+        +update()
+     }
+   
+    Coche "1" -- "many" Model : contains
+    Model "1" -- "1" Botonera : uses
+    Model "1" -- "1" IU : uses
+    View "1" -- "1" IU : uses
+    Dialog "1" -- "1" IU : uses
+    Controller "1" -- "1" IU : uses
+    Controller "1" -- "1" Model : uses
+    Observable "1" -- "many" Observer : notifies
+    Observer <|-- ObserverBajarVelocidad
+    Observer <|-- ObserverSubirVelocidad
+    Observer <|-- ObserverVelocidad
+    Observer <|-- ObserverLimite
       
 ```
 
@@ -44,39 +121,30 @@ classDiagram
 
 ### Diagrama de Secuencia
 
-Ejemplo básico del procedimiento, sin utilizar los nombres de los métodos
-
-
-```mermaid
-sequenceDiagram
-    participant Model
-    participant Controller
-    participant View
-    Controller->>Model: Puedes crear un coche?
-    activate Model
-    Model-->>Controller: Creado!
-    deactivate Model
-    Controller->>+View: Muestra la velocidad, porfa
-    activate View
-    View->>-View: Mostrando velocidad
-    View-->>Controller: Listo!
-    deactivate View
-```
-
-El mismo diagrama con los nombres de los métodos
+Diagrama de secuencia de la creación de un coche, subir la velocidad y mostrar la velocidad en la vista.
 
 ```mermaid
 sequenceDiagram
-    participant Model
-    participant Controller
-    participant View
-    Controller->>Model: crearCoche("Mercedes", "BXK 1234")
-    activate Model
-    Model-->>Controller: Coche
-    deactivate Model
-    Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
-    activate View
-    View->>-View: System.out.println()
-    View-->>Controller: boolean
-    deactivate View
+    participant IU as IU
+    participant Controller as Controller
+    participant Model as Model
+    participant Coche as Coche
+    participant View as View
+    participant Dialog as Dialog
+    participant Observable as Observable
+    participant Observer as Observer
+
+    IU->>Controller: crearCoche(modelo, matricula)
+    Controller->>Model: crearCoche(modelo, matricula)
+    Model->>Coche: new Coche(modelo, matricula)
+    Model->>Observable: notifyObservers(coche)
+    Observable->>Observer: update()
+    IU->>Controller: subirVelocidad(matricula, velocidad)
+    Controller->>Model: subirVelocidad(matricula, velocidad)
+    Model->>Coche: setVelocidad(velocidad)
+    Model->>Observable: notifyObservers(coche)
+    Observable->>Observer: update()
+    IU->>View: mostrarVelocidad(matricula, velocidad)
+    IU->>Dialog: mostrarMensaje("Velocidad cambiada")
 ```
+

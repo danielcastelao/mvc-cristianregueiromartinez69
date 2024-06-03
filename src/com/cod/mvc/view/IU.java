@@ -1,4 +1,3 @@
-
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
@@ -10,20 +9,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Clase IU
- * Clase que contiene los elementos de la interfaz gráfica
+ * Clase IU que contiene los elementos de la interfaz gráfica
  * @author Cristian
- * @version 3.0
+ * @version 4.0
  */
 public class IU {
     /**
      * Elementos de la interfaz gráfica
      */
     private JButton crearCoche;
+    private JButton buscarCoche;
+    private JButton subirVelocidad;
+    private JButton bajarVelocidad;
     public JPanel panel;
     private JTextField modelo;
     private JTextField matricula;
+    private JTextField velocidadCoche;
 
+    Model model = Model.getInstance();
     /**
      * Constructor del entorno gráfico
      * tendrá los listener de la interfaz gráfica
@@ -39,11 +42,11 @@ public class IU {
                 /**
                  * Creamos un nuevo controlador
                  */
-                Controller miController = new Controller(new Model());
+                Controller miController = new Controller(model);
                 /**
                  * Creamos un coche
                  */
-                miController.crearCoche(modelo.getText(), matricula.getText());
+                miController.crearCoche(modelo.getText(), matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
                 /**
                  * Mostramos el mensaje
                  */
@@ -55,7 +58,72 @@ public class IU {
                 matricula.setText("");
             }
         });
+        buscarCoche = new JButton("Buscar Coche");
+        buscarCoche.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /**
+                 * Creamos un nuevo controlador
+                 */
+                Controller miController = new Controller(model);
+                /**
+                 * Buscamos un coche
+                 */
+                miController.buscarCoche(matricula.getText());
+                /**
+                 * Mostramos el mensaje
+                 */
+                Dialog.mostrarMensaje("Coche buscado: " + matricula.getText());
+                /**
+                 * Limpiamos los campos
+                 */
+                modelo.setText("");
+                matricula.setText("");
+            }
+        });
+
+        subirVelocidad = new JButton("Subir Velocidad");
+        subirVelocidad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /**
+                 * Creamos un nuevo controlador
+                 */
+                Controller miController = new Controller(model);
+                /**
+                 * Subimos la velocidad
+                 */
+                miController.subirVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+
+                /**
+                 * Limpiamos los campos
+                 */
+                modelo.setText("");
+                matricula.setText("");
+            }
+        });
+        bajarVelocidad = new JButton("Bajar Velocidad");
+        bajarVelocidad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /**
+                 * Creamos un nuevo controlador
+                 */
+                Controller miController = new Controller(model);
+                /**
+                 * Bajamos la velocidad
+                 */
+                miController.bajarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+
+                /**
+                 * Limpiamos los campos
+                 */
+                modelo.setText("");
+                matricula.setText("");
+            }
+        });
     }
+
 
     /**
      * Inicializa la Interfaz del Usuario
@@ -83,3 +151,5 @@ public class IU {
         jframe.setVisible(true);
     }
 }
+
+

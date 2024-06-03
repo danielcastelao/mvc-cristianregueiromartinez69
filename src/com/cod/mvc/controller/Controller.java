@@ -5,14 +5,14 @@ import com.cod.mvc.model.Model;
 /**
  * Clase Controller
  * @author cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Controller{
 
     /**
      * Atributo miModel de la clase Model
      */
-    private Model miModel;
+    Model miModel = Model.getInstance();
 
     /**
      * Constructor de la clase Controller
@@ -32,23 +32,57 @@ public class Controller{
          */
         ObserverLimite observoLimite = new ObserverLimite(miModel);
         miModel.addObserver(observoLimite);
+
+        ObserverSubirVelocidad observerSubirVelocidad= new ObserverSubirVelocidad(miModel);
+        miModel.addObserver(observerSubirVelocidad);
+
+        ObserverBajarVelocidad observerBajarVelocidad= new ObserverBajarVelocidad(miModel);
+        miModel.addObserver(observerBajarVelocidad);
+
     }
 
     /**
      * Crea un coche
-     * @param nombre del coche
+     * @param modelo del coche
      * @param matricula del coche
      */
-    public void crearCoche(String nombre, String matricula){
-        miModel.crearCoche(nombre, matricula);
+    public void crearCoche(String modelo, String matricula, Integer velocidad){
+        miModel.crearCoche(modelo, matricula, velocidad);
     }
 
     /**
-     * Cambia la velocidad de un coche
+     * metodo que Cambia la velocidad de un coche
      * @param matricula del coche
      * @param velocidad a cambiar
      */
     public void cambiarVelocidad(String matricula, Integer velocidad){
         miModel.cambiarVelocidad(matricula, velocidad);
     }
+
+    /**
+     * metodo que Busca un coche y nos muestra sus datos
+     * @param matricula del coche
+     */
+    public void buscarCoche(String matricula){
+        miModel.getDatosCoche(matricula);
+    }
+
+    /**
+     * metodo para subir la velocidad de un coche
+     * @param matricula del coche
+     * @param velocidad a subir
+     */
+    public void subirVelocidad(String matricula, Integer velocidad){
+        miModel.subirVelocidad(matricula, velocidad);
+    }
+
+    /**
+     * metodo para bajar la velocidad de un coche
+     * @param matricula del coche
+     * @param velocidad a bajar
+     */
+    public void bajarVelocidad(String matricula, Integer velocidad) {
+        miModel.bajarVelocidad(matricula, velocidad);
+    }
+
 }

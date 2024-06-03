@@ -5,19 +5,21 @@ import com.cod.mvc.model.Model;
 import com.cod.mvc.view.View;
 
 /**
- * ObserverVelocidad
- * Observer que muestra la velocidad del coche
+ * clase ObserverBajarVelocidad que baja la velocidad del coche
  * @author Cristian
  * @version 4.0
  */
-public class ObserverVelocidad implements Observer {
+public class ObserverBajarVelocidad  implements Observer{
+    /**
+     * Atributo model de la clase Model
+     */
     Model model = Model.getInstance();
 
     /**
-     * Constructor
+     * Constructor de la clase
      * @param model para poder hacer cambios
      */
-    public ObserverVelocidad(Model model) {
+    public ObserverBajarVelocidad(Model model) {
         this.model = model;
     }
 
@@ -27,6 +29,7 @@ public class ObserverVelocidad implements Observer {
      */
     @Override
     public void update(Coche arg) {
+        //llamamos a la view para que muestre el mensaje correspondiente
         View.mostrarVelocidad(arg.matricula, arg.velocidad);
     }
 }

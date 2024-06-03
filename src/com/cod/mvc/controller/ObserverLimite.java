@@ -1,4 +1,3 @@
-
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
@@ -8,7 +7,7 @@ import com.cod.mvc.view.Dialog;
 /**
  * Clase ObserverLimite
  * @author cristian
- * @version 3.0
+ * @version 4.0
  */
 public class ObserverLimite implements Observer {
     /**
