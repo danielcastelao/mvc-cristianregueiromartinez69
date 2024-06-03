@@ -21,6 +21,7 @@ public class IU {
     private JButton crearCoche;
     private JButton buscarCoche;
     private JButton subirVelocidad;
+    private JButton bajarVelocidad;
     public JPanel panel;
     private JTextField modelo;
     private JTextField matricula;
@@ -81,6 +82,7 @@ public class IU {
                 matricula.setText("");
             }
         });
+
         subirVelocidad = new JButton("Subir Velocidad");
         subirVelocidad.addActionListener(new ActionListener() {
             @Override
@@ -104,7 +106,29 @@ public class IU {
                 matricula.setText("");
             }
         });
-
+        bajarVelocidad = new JButton("Bajar Velocidad");
+        bajarVelocidad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /**
+                 * Creamos un nuevo controlador
+                 */
+                Controller miController = new Controller(model);
+                /**
+                 * Bajamos la velocidad
+                 */
+                miController.bajarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+                /**
+                 * Mostramos el mensaje
+                 */
+                View.mostrarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+                /**
+                 * Limpiamos los campos
+                 */
+                modelo.setText("");
+                matricula.setText("");
+            }
+        });
     }
 
 
@@ -134,3 +158,5 @@ public class IU {
         jframe.setVisible(true);
     }
 }
+
+

@@ -9,7 +9,7 @@ import javax.swing.*;
  * Clase Botonera
  * Clase que contiene los elementos de la botonera
  * @author Cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Botonera {
 
