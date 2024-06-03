@@ -114,6 +114,7 @@ public class Model implements Observable {
         Coche coche = getDatosCoche(matricula);
         if (coche != null) {
             coche.setVelocidad(coche.getVelocidad() + incremento);
+            //notificamos a los observers
             notifyObservers(coche);
         }
     }
@@ -127,6 +128,7 @@ public class Model implements Observable {
         Coche coche = getDatosCoche(matricula);
         if (coche != null) {
             coche.setVelocidad(coche.getVelocidad() - decremento);
+            //notificamos a los observers
             notifyObservers(coche);
         }
     }

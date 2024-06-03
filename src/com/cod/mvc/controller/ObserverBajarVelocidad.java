@@ -32,6 +32,7 @@ public class ObserverBajarVelocidad  implements Observer{
      */
     @Override
     public void update(Coche arg) {
+        //llamamos a la view para que muestre el mensaje correspondiente
         View.mostrarVelocidad(arg.matricula, arg.velocidad + BAJAR);
     }
 }

@@ -5,8 +5,7 @@ import com.cod.mvc.model.Model;
 import com.cod.mvc.view.View;
 
 /**
- * ObserverSubirVelocidad
- * Observer que sube la velocidad del coche al pulsar un boton
+ * ObserverSubirVelocidad que sube la velocidad del coche al pulsar un boton
  * @author Cristian
  * @version 4.0
  */
@@ -34,6 +33,7 @@ public class ObserverSubirVelocidad implements Observer{
      */
     @Override
     public void update(Coche arg) {
+        //llamamos a la view para que muestre el mensaje correspondiente
         View.mostrarVelocidad(arg.matricula, arg.velocidad + SUBIR);
     }
 }
