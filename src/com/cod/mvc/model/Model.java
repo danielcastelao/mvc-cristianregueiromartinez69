@@ -119,6 +119,19 @@ public class Model implements Observable {
     }
 
     /**
+     * Método que baja la velocidad de un coche en una cantidad
+     * @param matricula del coche a bajar velocidad
+     * @param decremento a bajar velocidad
+     */
+    public void bajarVelocidad(String matricula, Integer decremento) {
+        Coche coche = getDatosCoche(matricula);
+        if (coche != null) {
+            coche.setVelocidad(coche.getVelocidad() - decremento);
+            notifyObservers(coche);
+        }
+    }
+
+    /**
      * Metodo para hacer el Singleton
      * @return la instancia de Model que será unica
      */
