@@ -45,7 +45,7 @@ public class Botonera {
             /**
              * Cambiamos la velocidad
              */
-            Coche.setAuxVelocidad(Integer.parseInt(text_cambiar.getText()));
+
             miController.buscarCoche(text_matricula.getText());
 
             /**

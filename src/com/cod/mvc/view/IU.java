@@ -2,6 +2,7 @@
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
+import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 
 import javax.swing.*;
@@ -67,6 +68,7 @@ public class IU {
                 /**
                  * Buscamos un coche
                  */
+
                 miController.buscarCoche(matricula.getText());
                 /**
                  * Mostramos el mensaje

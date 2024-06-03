@@ -12,7 +12,7 @@ public class Controller{
     /**
      * Atributo miModel de la clase Model
      */
-    private Model miModel;
+    Model miModel = Model.getInstance();
 
     /**
      * Constructor de la clase Controller
@@ -32,15 +32,20 @@ public class Controller{
          */
         ObserverLimite observoLimite = new ObserverLimite(miModel);
         miModel.addObserver(observoLimite);
+
+        ObserverSubirVelocidad observerSubirVelocidad= new ObserverSubirVelocidad(miModel);
+        miModel.addObserver(observerSubirVelocidad);
+
+
     }
 
     /**
      * Crea un coche
-     * @param nombre del coche
+     * @param modelo del coche
      * @param matricula del coche
      */
-    public void crearCoche(String nombre, String matricula){
-        miModel.crearCoche(nombre, matricula);
+    public void crearCoche(String modelo, String matricula, Integer velocidad){
+        miModel.crearCoche(modelo, matricula, velocidad);
     }
 
     /**
@@ -59,4 +64,14 @@ public class Controller{
     public void buscarCoche(String matricula){
         miModel.getDatosCoche(matricula);
     }
+
+    /**
+     * Sube la velocidad de un coche
+     * @param matricula del coche
+     * @param velocidad a subir
+     */
+    public void subirVelocidad(String matricula, Integer velocidad){
+        miModel.subirVelocidad(matricula, velocidad);
+    }
+
 }

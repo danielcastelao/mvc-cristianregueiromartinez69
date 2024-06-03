@@ -21,7 +21,6 @@ public class Coche {
      */
     public Integer velocidad;
 
-    public static int auxVelocidad;
 
     /**
      * Constructor de la clase
@@ -31,8 +30,9 @@ public class Coche {
     public Coche(String matricula, String modelo) {
         this.matricula = matricula;
         this.modelo = modelo;
-        this.velocidad = auxVelocidad;
+        this.velocidad = 0;
     }
+
 
     /**
      * getter y setter de los atributos del coche
@@ -61,13 +61,7 @@ public class Coche {
         this.velocidad = velocidad;
     }
 
-    public static int getAuxVelocidad() {
-        return auxVelocidad;
-    }
 
-    public static void setAuxVelocidad(int auxVelocidad) {
-        Coche.auxVelocidad = auxVelocidad;
-    }
 
     /**
      * Método toString
