@@ -60,7 +60,7 @@ classDiagram
     }
         
       
-      }
+     
       class Model {
          ~ model Model
          +parking : ArrayList<Coche>
