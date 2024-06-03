@@ -36,6 +36,8 @@ public class Controller{
         ObserverSubirVelocidad observerSubirVelocidad= new ObserverSubirVelocidad(miModel);
         miModel.addObserver(observerSubirVelocidad);
 
+        ObserverBajarVelocidad observerBajarVelocidad= new ObserverBajarVelocidad(miModel);
+        miModel.addObserver(observerBajarVelocidad);
 
     }
 
