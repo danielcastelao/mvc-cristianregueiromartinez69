@@ -20,7 +20,6 @@ public class Botonera {
     private JTextField text_matricula;
     private JLabel label_matricula;
     private JButton button_obtener;
-    private JTextField velocidadText;
     private JLabel matriculaSubirLabel;
     private JTextField matriculaSubirText;
     private JLabel VelocidadSubirLabel;
