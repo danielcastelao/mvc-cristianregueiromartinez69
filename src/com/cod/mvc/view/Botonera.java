@@ -9,7 +9,7 @@ import javax.swing.*;
  * Clase Botonera
  * Clase que contiene los elementos de la botonera
  * @author Cristian
- * @version 4.0
+ * @version 3.0
  */
 public class Botonera {
 
@@ -20,13 +20,17 @@ public class Botonera {
     private JTextField text_matricula;
     private JLabel label_matricula;
     private JButton button_obtener;
-    private JButton cambiarVelocidadButton;
     private JTextField velocidadText;
     private JLabel matriculaSubirLabel;
     private JTextField matriculaSubirText;
     private JLabel VelocidadSubirLabel;
     private JButton subirVelocidadButton;
     private JTextField subirVelocidadText;
+    private JTextField textMatriculaBajar;
+    private JLabel velocidadBajarLabel;
+    private JTextField velocidadBajarText;
+    private JButton bajarVelocidadButton;
+    private JLabel matriculaLabelBajar;
 
     Model model = Model.getInstance();
 
@@ -60,6 +64,7 @@ public class Botonera {
              */
             text_matricula.setText("");
         });
+
         subirVelocidadButton.addActionListener(e -> {
             /**
              * Creamos un nuevo controlador
@@ -79,7 +84,25 @@ public class Botonera {
              */
             matriculaSubirText.setText("");
         });
+        bajarVelocidadButton.addActionListener(e -> {
+            /**
+             * Creamos un nuevo controlador
+             */
+            Controller miController = new Controller(model);
+            /**
+             * Cambiamos la velocidad
+             */
+            miController.bajarVelocidad(textMatriculaBajar.getText(), Integer.valueOf(velocidadBajarText.getText()));
 
+            /**
+             * Mostramos el mensaje
+             */
+            View.mostrarVelocidad(textMatriculaBajar.getText(), Integer.valueOf(velocidadBajarText.getText()));
+            /**
+             * Limpiamos los campos
+             */
+            textMatriculaBajar.setText("");
+        });
     }
 
     /**
