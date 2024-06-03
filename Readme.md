@@ -84,7 +84,7 @@ classDiagram
           +subirVelocidad(String, Integer)
           +bajarVelocidad(String, Integer)
       }
-      interface Observer{
+      class Observer{
           +update()
       }
       class ObserverBajarVelocidad{
