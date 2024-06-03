@@ -94,10 +94,7 @@ public class IU {
                  * Subimos la velocidad
                  */
                 miController.subirVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
-                /**
-                 * Mostramos el mensaje
-                 */
-                View.mostrarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+
                 /**
                  * Limpiamos los campos
                  */
@@ -117,10 +114,7 @@ public class IU {
                  * Bajamos la velocidad
                  */
                 miController.bajarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
-                /**
-                 * Mostramos el mensaje
-                 */
-                View.mostrarVelocidad(matricula.getText(), Integer.valueOf(velocidadCoche.getText()));
+
                 /**
                  * Limpiamos los campos
                  */

@@ -15,10 +15,7 @@ public class ObserverSubirVelocidad implements Observer{
      * Atributo model de la clase Model
      */
     Model model = Model.getInstance();
-    /**
-     * Atributo SUBIR que subirá la velocidad del coche
-     */
-    private static final int SUBIR = 10;
+
     /**
      * Constructor de la clase
      * @param model para poder hacer cambios
@@ -34,6 +31,6 @@ public class ObserverSubirVelocidad implements Observer{
     @Override
     public void update(Coche arg) {
         //llamamos a la view para que muestre el mensaje correspondiente
-        View.mostrarVelocidad(arg.matricula, arg.velocidad + SUBIR);
+        View.mostrarVelocidad(arg.matricula, arg.velocidad);
     }
 }
