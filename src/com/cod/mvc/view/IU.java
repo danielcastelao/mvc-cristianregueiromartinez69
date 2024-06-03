@@ -9,8 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Clase IU
- * Clase que contiene los elementos de la interfaz gráfica
+ * Clase IU que contiene los elementos de la interfaz gráfica
  * @author Cristian
  * @version 4.0
  */

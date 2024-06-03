@@ -6,8 +6,7 @@ import com.cod.mvc.model.Model;
 import javax.swing.*;
 
 /**
- * Clase Botonera
- * Clase que contiene los elementos de la botonera
+ * Clase Botonera que contiene los elementos de la botonera
  * @author Cristian
  * @version 4.0
  */
