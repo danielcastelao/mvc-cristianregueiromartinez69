@@ -1,30 +1,75 @@
 import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class TestModel {
-    @Test
-    public void crearCocheReturnTrue(){
-        Model model = new Model();
-        Assertions.assertNotNull(model.crearCoche("matricula", "modelo"));
+    Model model = Model.getInstance();
+
+    @BeforeEach
+    public void setup() {
+        Model.parking.clear();
     }
 
     @Test
-    public void cambiarVelocidadComprobarCambioReturnTrue(){
-        Model model = new Model();
-        Coche coche = model.crearCoche("matricula", "modelo");
+    public void crearCocheReturnTrue() {
+        Assertions.assertNotNull(model.crearCoche("modelo", "matricula", 0));
+    }
+
+    @Test
+    public void cambiarVelocidadComprobarCambioReturnTrue() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
         Integer velocidad = 40;
-        model.parking.add(coche);
         model.cambiarVelocidad("matricula", velocidad);
         Assertions.assertEquals(velocidad, coche.getVelocidad());
-
     }
+
     @Test
-    public void comprobarAddCocheIntoParkingReturnTrue(){
-        Model model = new Model();
-        Coche coche = model.crearCoche("matricula", "modelo");
-        Assertions.assertEquals(model.getCoche(coche.matricula), coche);
+    public void comprobarAddCocheIntoParkingReturnTrue() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
+        Assertions.assertEquals(model.getDatosCoche(coche.getMatricula()), coche);
+    }
+
+    @Test
+    public void testGetDatosCoche() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
+        Assertions.assertEquals(coche, model.getDatosCoche("matricula"));
+        Assertions.assertNull(model.getDatosCoche("matriculaInexistente"));
+    }
+
+    @Test
+    public void testCambiarVelocidadYObtenerVelocidad() {
+        String matricula = "ABC123";
+        String modelo = "ModeloX";
+        Integer velocidadInicial = 0;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer nuevaVelocidad = 40;
+        model.cambiarVelocidad(matricula, nuevaVelocidad);
+
+        velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(nuevaVelocidad, velocidad);
+    }
+
+    @Test
+    public void testSubirVelocidad() {
+        String matricula = "ABC123";
+        String modelo = "ModeloX";
+        Integer velocidadInicial = 150;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer incremento = 10;
+        model.subirVelocidad(matricula, incremento);
+
+        int nuevaVelocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial + incremento, nuevaVelocidad);
     }
 
 }

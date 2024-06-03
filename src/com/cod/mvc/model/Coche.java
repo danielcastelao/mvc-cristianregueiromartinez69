@@ -1,25 +1,25 @@
-
 package com.cod.mvc.model;
 
 /**
  * Clase Coche que representa un coche de nuestra aplicación
  * @author cristian
- * @version v3.0
+ * @version v4.0
  */
 public class Coche {
 
     /**
      * Matricula del coche
      */
-    public String matricula;
+    public String modelo;
     /**
      * Modelo del coche
      */
-    public String modelo;
+    public String matricula;
     /**
      * Velocidad del coche
      */
     public Integer velocidad;
+
 
 
     /**
@@ -27,12 +27,11 @@ public class Coche {
      * @param matricula del coche
      * @param modelo del coche
      */
-    public Coche(String matricula, String modelo) {
-        this.matricula = matricula;
+    public Coche(String modelo, String matricula, Integer velocidad) {
         this.modelo = modelo;
-        this.velocidad = 0;
+        this.matricula = matricula;
+        this.velocidad = velocidad;
     }
-
 
     /**
      * getter y setter de los atributos del coche
@@ -60,7 +59,6 @@ public class Coche {
     public void setVelocidad(Integer velocidad) {
         this.velocidad = velocidad;
     }
-
 
 
     /**

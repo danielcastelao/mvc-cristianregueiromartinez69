@@ -1,4 +1,3 @@
-
 package com.cod.mvc.controller;
 
 import com.cod.mvc.model.Coche;
@@ -9,10 +8,10 @@ import com.cod.mvc.view.View;
  * ObserverVelocidad
  * Observer que muestra la velocidad del coche
  * @author Cristian
- * @version 3.0
+ * @version 4.0
  */
 public class ObserverVelocidad implements Observer {
-    private final Model model;
+    Model model = Model.getInstance();
 
     /**
      * Constructor

@@ -1,8 +1,6 @@
-
 package com.cod.mvc.view;
 
 import com.cod.mvc.controller.Controller;
-import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
 
 import javax.swing.*;
@@ -11,7 +9,7 @@ import javax.swing.*;
  * Clase Botonera
  * Clase que contiene los elementos de la botonera
  * @author Cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Botonera {
 
@@ -21,9 +19,14 @@ public class Botonera {
     public JPanel panel;
     private JTextField text_matricula;
     private JLabel label_matricula;
-    private JLabel label_cambiar;
-    private JTextField text_cambiar;
-    private JButton button_cambiar;
+    private JButton button_obtener;
+    private JButton cambiarVelocidadButton;
+    private JTextField velocidadText;
+    private JLabel matriculaSubirLabel;
+    private JTextField matriculaSubirText;
+    private JLabel VelocidadSubirLabel;
+    private JButton subirVelocidadButton;
+    private JTextField subirVelocidadText;
 
     Model model = Model.getInstance();
 
@@ -37,7 +40,7 @@ public class Botonera {
         /**
          * Listener del boton cambiar
          */
-        button_cambiar.addActionListener(e -> {
+        button_obtener.addActionListener(e -> {
             /**
              * Creamos un nuevo controlador
              */
@@ -45,7 +48,6 @@ public class Botonera {
             /**
              * Cambiamos la velocidad
              */
-
             miController.buscarCoche(text_matricula.getText());
 
             /**
@@ -57,8 +59,27 @@ public class Botonera {
              * Limpiamos los campos
              */
             text_matricula.setText("");
-            text_cambiar.setText("");
         });
+        subirVelocidadButton.addActionListener(e -> {
+            /**
+             * Creamos un nuevo controlador
+             */
+            Controller miController = new Controller(model);
+            /**
+             * Cambiamos la velocidad
+             */
+            miController.subirVelocidad(matriculaSubirText.getText(), Integer.valueOf(subirVelocidadText.getText()));
+
+            /**
+             * Mostramos el mensaje
+             */
+            View.mostrarVelocidad(matriculaSubirText.getText(), Integer.valueOf(subirVelocidadText.getText()));
+            /**
+             * Limpiamos los campos
+             */
+            matriculaSubirText.setText("");
+        });
+
     }
 
     /**
