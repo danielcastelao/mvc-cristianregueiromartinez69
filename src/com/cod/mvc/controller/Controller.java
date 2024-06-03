@@ -49,7 +49,7 @@ public class Controller{
     }
 
     /**
-     * Cambia la velocidad de un coche
+     * metodo que Cambia la velocidad de un coche
      * @param matricula del coche
      * @param velocidad a cambiar
      */
