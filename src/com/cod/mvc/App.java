@@ -12,6 +12,6 @@ import com.cod.mvc.view.View;
 public class App {
     public static void main(String[] args) {
         View.crearVentana();
-
+        //TODO: diagrama de clases y secuencia
     }
 }
