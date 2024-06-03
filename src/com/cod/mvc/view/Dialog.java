@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * Clase Dialog con los mensajes cada vez que cambiemos algo
  * @author cristian
- * @version 3.0
+ * @version 4.0
  */
 public class Dialog extends JDialog {
     /**

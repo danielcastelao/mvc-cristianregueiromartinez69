@@ -7,7 +7,7 @@ import com.cod.mvc.view.View;
 /**
  * clase app donde ejecutamos el programa
  * @author cristian
- * @version v3.0
+ * @version v4.0
  */
 public class App {
     public static void main(String[] args) {
