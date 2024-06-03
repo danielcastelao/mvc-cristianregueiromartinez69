@@ -58,7 +58,7 @@ public class Controller{
     }
 
     /**
-     * Busca un coche y nos muestra sus datos
+     * metodo que Busca un coche y nos muestra sus datos
      * @param matricula del coche
      */
     public void buscarCoche(String matricula){
