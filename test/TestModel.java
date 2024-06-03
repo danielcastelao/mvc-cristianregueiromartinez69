@@ -72,4 +72,21 @@ public class TestModel {
         Assertions.assertEquals(velocidadInicial + incremento, nuevaVelocidad);
     }
 
+    @Test
+    public void testBajarVelocidad() {
+        String matricula = "ABC123";
+        String modelo = "ModeloX";
+        Integer velocidadInicial = 150;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer decremento = 10;
+        model.bajarVelocidad(matricula, decremento);
+
+        int nuevaVelocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial - decremento, nuevaVelocidad);
+    }
+
 }
